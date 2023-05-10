@@ -1,0 +1,11 @@
+﻿@using Volo.Abp.Ui.Branding
+@inject IBrandingProvider BrandingProvider
+<MAppBarTitle>
+    <div >
+        @if (!BrandingProvider.LogoUrl.IsNullOrWhiteSpace())
+        {
+            <img src="@BrandingProvider.LogoUrl.TrimStart('/', '~')" alt="@BrandingProvider.AppName"/>
+        }
+        <span>@BrandingProvider.AppName</span>
+    </div>
+</MAppBarTitle>

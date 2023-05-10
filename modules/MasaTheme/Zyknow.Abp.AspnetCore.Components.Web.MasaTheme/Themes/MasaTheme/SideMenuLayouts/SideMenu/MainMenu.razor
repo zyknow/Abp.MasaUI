@@ -1,0 +1,13 @@
+﻿@implements IDisposable
+@inject MasaBlazor MasaBlazor
+@if (Menu != null)
+{
+    <MNavigationDrawer @bind-Value="expandNav" @bind-MiniVariant="@miniNav" Clipped App>
+    <MList Dense Nav Routable>
+        @foreach (var menuItem in Menu.Items)
+            {
+                <MainMenuItem MenuItem="menuItem" />
+            }
+        </MList>
+    </MNavigationDrawer>
+}

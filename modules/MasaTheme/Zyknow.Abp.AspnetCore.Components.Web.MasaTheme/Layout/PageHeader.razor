@@ -1,0 +1,38 @@
+﻿@using BlazorComponent
+@using Masa.Blazor
+@namespace Zyknow.Abp.AspnetCore.Components.Web.MasaTheme.Layout
+
+<MRow>
+    @if (Options.Value.RenderPageTitle)
+    {
+        <MCol >
+            <h1>@Title</h1>
+        </MCol>
+    }
+
+    @if (Options.Value.RenderBreadcrumbs && BreadcrumbItems.Any())
+    {
+        <MCol >
+            <MBreadcrumbs Items="BreadcrumbItems"></MBreadcrumbs>
+        </MCol>
+    }
+
+    @if (Options.Value.RenderToolbar)
+    {
+        <MCol>
+            <MRow Align="AlignTypes.End">
+                @if (Toolbar == null)
+                {
+                    @ChildContent
+                }
+
+                @foreach (var toolbarItemRender in ToolbarItemRenders)
+                {
+                    <MCol >
+                        @toolbarItemRender
+                    </MCol>
+                }
+            </MRow>
+        </MCol>
+    }
+</MRow>

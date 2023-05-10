@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+@using Zyknow.Abp.AspnetCore.Components.Web.MasaTheme.Components
+@using Zyknow.Abp.MasaUI.Components
+@using Zyknow.Abp.AspnetCore.Components.Web.MasaTheme.Themes.MasaTheme.SideMenuLayouts.MainHeader
+@using Zyknow.Abp.AspnetCore.Components.Web.MasaTheme.Themes.MasaTheme.SideMenuLayouts.SideMenu
+@implements IDisposable
+
+<CascadingValue Value="@CascadingIsDark" Name="IsDark">
+    <MApp Class="overflow-hidden">
+        <MainHeader OnToggle="()=>mainMenuRef?.OnToggle()" />
+        <MainMenu  @ref="mainMenuRef" />
+        <MMain>
+            <MContainer Fluid>
+                <PageAlert></PageAlert>
+                @Body
+            </MContainer>
+        </MMain>
+        <DynamicLayoutComponent />
+        <UiMessageAlert />
+        <UiNotificationAlert />
+    </MApp>
+</CascadingValue>

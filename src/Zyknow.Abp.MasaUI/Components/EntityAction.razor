@@ -1,0 +1,24 @@
+﻿@namespace Zyknow.Abp.MasaUI.Components
+@typeparam TItem
+
+@if (Visible)
+{
+    if (ParentActions.Type == ActionType.Dropdown)
+    {
+        <MListItem OnClick="@ActionClickedAsync" Disabled=@Disabled>
+            <MListItemContent>
+                <MListItemTitle>
+                    @Text
+                </MListItemTitle>
+            </MListItemContent>
+        </MListItem>
+    }
+    else
+    {
+        <MIcon Small Color="@Color"
+               OnClick="@ActionClickedAsync"
+               Disabled=@Disabled>
+            @Icon
+        </MIcon>
+    }
+}

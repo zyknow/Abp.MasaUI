@@ -1,0 +1,8 @@
+﻿@namespace Zyknow.Abp.AspnetCore.Components.Web.MasaTheme.Components
+@if (AbpDynamicLayoutComponentOptions.Value.Components.Any())
+{
+    foreach (var (componentType, parameters) in AbpDynamicLayoutComponentOptions.Value.Components)
+    {
+        <DynamicComponent Type="@componentType" Parameters="@parameters"/>
+    }
+}

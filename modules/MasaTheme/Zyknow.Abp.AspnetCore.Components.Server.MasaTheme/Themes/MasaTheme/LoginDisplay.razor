@@ -1,0 +1,48 @@
+﻿@namespace Zyknow.Abp.AspnetCore.Components.Server.MasaTheme.Themes.MasaTheme
+@using Volo.Abp.Users
+@using Volo.Abp.MultiTenancy
+@using Microsoft.Extensions.Localization
+@using global::Localization.Resources.AbpUi
+@inject ICurrentUser CurrentUser
+@inject ICurrentTenant CurrentTenant
+@inject IJSRuntime JsRuntime
+@inject NavigationManager Navigation
+@inject IStringLocalizer<AbpUiResource> L
+<AuthorizeView>
+    <Authorized>
+        <MMenu Absolute Context="menu_context">
+            <ActivatorContent>
+                <MLabel @attributes="@menu_context.Attrs">
+                    @if (CurrentTenant.Name != null)
+                    {
+                        <span><i>@CurrentTenant.Name</i>\@CurrentUser.UserName</span>
+                    }
+                    else
+                    {
+                        <span>@CurrentUser.UserName</span>
+                    }
+                </MLabel>
+            </ActivatorContent>
+            <ChildContent>
+                <MList>
+                    @if (Menu != null)
+                    {
+                        @foreach (var menuItem in Menu.Items)
+                        {
+                            <MListItem href="@menuItem.Url?.TrimStart('/', '~')" target="@menuItem.Target">
+                                <MListItemContent>
+                                    <MListItemTitle>
+                                        @menuItem.DisplayName
+                                    </MListItemTitle>
+                                </MListItemContent>
+                            </MListItem>
+                        }
+                    }
+                </MList>
+            </ChildContent>
+        </MMenu>
+    </Authorized>
+    <NotAuthorized>
+        <a class="nav-link" href="Account/Login">@L["Login"]</a>
+    </NotAuthorized>
+</AuthorizeView>

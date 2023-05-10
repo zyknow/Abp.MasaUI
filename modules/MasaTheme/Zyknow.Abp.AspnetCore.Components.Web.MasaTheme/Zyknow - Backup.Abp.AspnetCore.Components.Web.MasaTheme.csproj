@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\..\common.props"/>
+    <Import Project="..\..\..\configureawait.props"/>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Folder Include="wwwroot\"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\src\Zyknow.Abp.MasaUI\Zyknow.Abp.MasaUI.csproj"/>
+        <PackageReference Include="Volo.Abp.UI.Navigation" Version="$(ABPPackageVersion)"/>
+        <PackageReference Include="Volo.Abp.AutoMapper" Version="$(ABPPackageVersion)"/>
+    </ItemGroup>
+
+
+</Project>

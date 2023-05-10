@@ -1,0 +1,11 @@
+﻿@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+@implements IDisposable
+
+<MAppBar App ClippedLeft Dense Elevation="1">
+    <MAppBarNavIcon @onclick="OnToggle"/>
+    <MAppBarTitle>
+        <MainHeaderBranding/>
+    </MAppBarTitle>
+    <MSpacer/>
+    <MainHeaderToolbar/>
+</MAppBar>

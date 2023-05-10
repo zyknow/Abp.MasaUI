@@ -1,0 +1,42 @@
+﻿@using Volo.Abp.UI.Navigation
+@inject NavigationManager NavigationManager
+@{
+    var elementId = MenuItem.ElementId ?? "MenuItem_" + MenuItem.Name.Replace(".", "_");
+    var cssClass = string.IsNullOrEmpty(MenuItem.CssClass) ? string.Empty : MenuItem.CssClass;
+    var disabled = MenuItem.IsDisabled ? "disabled" : string.Empty;
+    var url = MenuItem.Url == null ? "#" : MenuItem.Url.TrimStart('/', '~');
+}
+
+
+@if (MenuItem.IsLeaf)
+{
+    if (MenuItem.Url != null)
+    {
+        <MListItem Link Href="@url" Target="@MenuItem.Target" Exact="true" class="@cssClass">
+            <MListItemIcon>
+                <MIcon>@MenuItem.Icon</MIcon>
+            </MListItemIcon>
+            <MListItemTitle>@MenuItem.DisplayName</MListItemTitle>
+        </MListItem>
+    }
+}
+else
+{
+    
+    <MListGroup>
+        <ActivatorContent>
+            <MListItemIcon>
+                <MIcon>@MenuItem.Icon</MIcon>
+            </MListItemIcon>
+            <MListItemContent>
+                <MListItemTitle>@MenuItem.DisplayName</MListItemTitle>
+            </MListItemContent>
+        </ActivatorContent>
+        <ChildContent>
+            @foreach (var childMenuItem in MenuItem.Items)
+            {
+                <MainMenuItem MenuItem="childMenuItem" />
+            }
+        </ChildContent>
+    </MListGroup>
+}

@@ -1,0 +1,13 @@
+<Project>
+	<PropertyGroup>
+		<LangVersion>latest</LangVersion>
+		<Version>0.0.1-preview1</Version>
+		<PackageProjectUrl>https://github.com/zyknow/Zyknow.Abp.MasaUI</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/zyknow/Zyknow.Abp.MasaUI</RepositoryUrl>
+		<ABPPackageVersion>7.2.*</ABPPackageVersion>
+		<MicrosoftPackageVersion>7.0.*</MicrosoftPackageVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+</Project>
